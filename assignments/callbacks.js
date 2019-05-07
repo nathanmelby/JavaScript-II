@@ -44,11 +44,11 @@ function last(arr, cb) {
 }
 
 function getLast(array, callback) {
-  return callback(items.slice(-1).pop());
+  return callback(items);
 }
 
-getLength(items, function(get){
-  console.log(get)
+getLast(items, function(get){
+  console.log(get.pop())
 });
 
 
@@ -88,6 +88,12 @@ function contains(item, list, cb) {
   // Pass true to the callback if it is, otherwise pass false.
 }
 
+function contains(item, list, callback){
+  return callback(list.includes(item))
+}
+contains('Pencil', items, function(isThere) {
+  console.log(isThere);
+});
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
