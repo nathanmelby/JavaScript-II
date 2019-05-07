@@ -102,6 +102,31 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 
+
+// const ticketPriceTotal = runners.reduce(function(accumulator, tally) {
+//     return accumulator + tally.donation;
+//     }, 0);
+    
+//     console.log(ticketPriceTotal);
+
 // Problem 2
 
+// Get list of all email addresses
+
+function getEmails(emailaddress) {
+    return {'E Mail': emailaddress.email}
+}
+
+const Emails= runners.map(getEmails)
+
+console.log(Emails);
+
 // Problem 3
+
+// Sort out every runner from the company named Skinix
+
+const companySkinix = runners.filter(function (company) {
+    return company.company_name=== "Skinix"
+}
+)
+console.log(companySkinix);
