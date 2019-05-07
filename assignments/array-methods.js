@@ -107,7 +107,7 @@ console.log(ticketPriceTotal);
 
 
 const biggestDonor = runners.reduce(function(wealthiest, donor) {
-    return (wealthiest.donation || 0) > donor.donations ? wealthiest : donor;
+    return (wealthiest.donation || 0) > donor.donation ? wealthiest : donor;
 }, {});
 
 
