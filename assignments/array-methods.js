@@ -102,12 +102,17 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 
+// Figure out biggest donor
 
-// const ticketPriceTotal = runners.reduce(function(accumulator, tally) {
-//     return accumulator + tally.donation;
-//     }, 0);
-    
-//     console.log(ticketPriceTotal);
+
+
+const biggestDonor = runners.reduce(function(wealthiest, donor) {
+    return (wealthiest.donation || 0) > donor.donations ? wealthiest : donor;
+}, {});
+
+
+
+console.log(biggestDonor);
 
 // Problem 2
 
@@ -117,7 +122,7 @@ function getEmails(emailaddress) {
     return {'E Mail': emailaddress.email}
 }
 
-const Emails= runners.map(getEmails)
+const Emails = runners.map(getEmails)
 
 console.log(Emails);
 
