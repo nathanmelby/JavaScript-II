@@ -29,23 +29,71 @@ function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
 }
 
+function getLength(array, callback) {
+  return callback(items.length);
+}
+
+getLength(items, function(get){
+  console.log(get)
+});
+
+
+
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
 }
+
+function getLast(array, callback) {
+  return callback(items);
+}
+
+getLast(items, function(get){
+  console.log(get.pop())
+});
+
+
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
 
+const add = (num1, num2, callback) => {
+  callback(num1 + num2)
+}  
+const printAnswer = (answer) => {
+  console.log('answer', answer)
+}
+const log=console.log
+add(35,111, printAnswer) 
+
+
+
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
+
+const multiply = (num1, num2, callback) => {
+  callback(num1 * num2)
+}  
+const printAnswer2 = (answer) => {
+  console.log('answer', answer)
+}
+const log2=console.log
+multiply(23,42, printAnswer2) 
+
+
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 }
 
+function contains(item, list, callback){
+  return callback(list.includes(item))
+}
+contains('Pencil', items, function(isThere) {
+  console.log(isThere);
+});
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {

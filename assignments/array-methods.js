@@ -55,22 +55,46 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs.  Combine both the first and last names into a new array called fullName. 
-let fullName = [];
+
+// let fullName = runners.forEach((fullName) => {
+//     return {'First Name': runners.first_name, 'Last Name': runners.last_name};
+// });
+
+// let fullName = [];
+
+function getfullName(fullname) {
+    return {'First Name': fullname.first_name, 'Last Name': fullname.last_name}
+}
+
+const fullName = runners.map(getfullName)
+
 console.log(fullName);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result
+
 let allCaps = [];
+allCaps = runners.map (function(runner){ 
+    return runner.first_name.toUpperCase();
+});
+
 console.log(allCaps); 
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
-let largeShirts = [];
+const largeShirts = runners.filter(function (name) {
+    return name.shirt_size === "L"
+}
+)
 console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
-let ticketPriceTotal = [];
+
+const ticketPriceTotal = runners.reduce(function(accumulator, tally) {
+return accumulator + tally.donation;
+}, 0);
+
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
@@ -78,6 +102,36 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 
+// Figure out biggest donor
+
+
+
+const biggestDonor = runners.reduce(function(wealthiest, donor) {
+    return (wealthiest.donation || 0) > donor.donation ? wealthiest : donor;
+}, {});
+
+
+
+console.log(biggestDonor);
+
 // Problem 2
 
+// Get list of all email addresses
+
+function getEmails(emailaddress) {
+    return {'E Mail': emailaddress.email}
+}
+
+const Emails = runners.map(getEmails)
+
+console.log(Emails);
+
 // Problem 3
+
+// Sort out every runner from the company named Skinix
+
+const companySkinix = runners.filter(function (company) {
+    return company.company_name=== "Skinix"
+}
+)
+console.log(companySkinix);
